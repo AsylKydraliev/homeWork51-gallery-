@@ -1,7 +1,8 @@
-<button>Open form</button>
-<input type="password" id="password" placeholder="password" (submit)="onPassword($event)">
 
-<form *ngIf="showForm" (submit)="onAddCountry($event)">
+<input type="password" name="password" placeholder="password" (submit)="onPassword($event)">
+<button  (click)="showForm = !showForm" >Open form</button>
+
+<form *ngIf="showForm" (submit)="onAddCountry()">
   <label>Country name: <input name="CountryName" [(ngModel)]="CountryName"/></label><br/>
   <label>Country url: <input name="CountryUrl" [(ngModel)]="CountryUrl"/></label>
   <br/>
