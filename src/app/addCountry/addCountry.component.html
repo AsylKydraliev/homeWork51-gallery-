@@ -1,0 +1,24 @@
+<button>Open form</button>
+<input type="password" id="password" placeholder="password" (submit)="onPassword($event)">
+
+<form *ngIf="showForm" (submit)="onAddCountry($event)">
+  <label>Country name: <input name="CountryName" [(ngModel)]="CountryName"/></label><br/>
+  <label>Country url: <input name="CountryUrl" [(ngModel)]="CountryUrl"/></label>
+  <br/>
+  <button
+    type="submit"
+    [disabled]="formIsEmpty()"
+  >Add country</button>
+  <button (click)="reset()" [disabled]="CountryName === '' && CountryUrl ===''"
+  >Reset</button>
+</form>
+
+<hr>
+
+<app-countries *ngFor="let countryImg of countries"
+            [CountryName]="countryImg.CountryName"
+            [CountryUrl]="countryImg.CountryUrl"
+></app-countries>
+
+
+
